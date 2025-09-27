@@ -1,0 +1,113 @@
+/* Resultado final (card vibrante, celebratorio) */
+.results-outer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, #d946ef, #6366f1, #0ea5e9);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Tarjeta */
+.results-card {
+  width: 100%;
+  max-width: 680px;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  text-align: center;
+  border: 3px solid #6366f1;
+  animation: popIn 0.5s ease;
+}
+
+/* Título con gradiente */
+.results-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(90deg,#ec4899,#6366f1,#0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Secciones */
+.results-section {
+  margin-top: 22px;
+  font-size: 1.05rem;
+}
+
+.results-section h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.results-list {
+  margin-top: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.results-list li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Estados llamativos */
+.winner {
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.eliminated {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.alive {
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* Botón volver */
+.results-card button {
+  margin-top: 28px;
+  padding: 14px 20px;
+  background: linear-gradient(90deg,#6366f1,#4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.results-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(79,70,229,0.4);
+}
+
+/* Animación divertida */
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
