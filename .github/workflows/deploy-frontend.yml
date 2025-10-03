@@ -20,17 +20,17 @@ jobs:
       - name: Instalar dependencias y build
         run: |
           npm install
-          npm run build
+          npm run build  # Esto genera la carpeta dist/
+
+      - name: Verificar contenido del directorio
+        run: ls -l dist/  # Verifica si la carpeta dist/ fue creada
 
       - name: Deploy a S3 y limpiar cache CloudFront
         run: |
-          # Cambié el nombre del bucket S3 por frontend-juego-trivial
-          aws s3 sync build/ s3://frontend-juego-trivial --delete
-          
-          # El ID de la distribución de CloudFront sigue siendo frontend-juego-trivial
+          # Usamos dist/ en lugar de build/
+          aws s3 sync dist/ s3://frontend-juego-trivial --delete
           aws cloudfront create-invalidation --distribution-id frontend-juego-trivial --paths "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "us-east-1"
-
